@@ -1,0 +1,9 @@
+"""
+Using the  python shell for sqlite, batch uploaded data to the database
+"""
+from myapp.models import Temp_record,Area_desc
+import csv
+fields =['year','month1','month2','month3','month4','month5','month6','month7','month8','month8','month9','month10','month11','month12','winter','spring','summer','autumn','annual']
+dataReader=csv.reader(open('/Users/serenaanuj/Desktop/new_file.csv'),delimiter =',')
+for row in dataReader:
+    Temp_record.objects.create(**dict(zip(fields,row)),area_id=1)
